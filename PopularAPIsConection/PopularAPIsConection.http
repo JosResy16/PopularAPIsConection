@@ -1,0 +1,6 @@
+@PopularAPIsConection_HostAddress = http://localhost:5080
+
+GET {{PopularAPIsConection_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
