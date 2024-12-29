@@ -1,3 +1,5 @@
+using PopularAPIsConection.Services.SpotifyAPI;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,7 +9,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddHttpClient();
+builder.Services.AddTransient<SpotifyAuthHandler>();
+builder.Services.AddHttpClient("SpotifyClient").AddHttpMessageHandler<SpotifyAuthHandler>();
+
+
+builder.Services.AddScoped<SpotifyService>();
 
 var app = builder.Build();
 
